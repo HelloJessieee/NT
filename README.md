@@ -1,125 +1,165 @@
-# 新加坡AED部署优化与志愿者分配研究包
+# Singapore AED Deployment Optimization and Volunteer Assignment Research Package
 
-## 项目概述
+## Project Overview
 
-本项目为新加坡心脏骤停（OHCA）事件的风险建模、AED（自动体外除颤器）部署优化和志愿者分配的综合研究。研究基于真实的地理数据、人口统计数据和历史OHCA事件数据，为政府决策提供科学依据。
+This project provides a comprehensive study on risk modeling, AED (Automated External Defibrillator) deployment optimization, and volunteer assignment for Out-of-Hospital Cardiac Arrest (OHCA) events in Singapore. The research is based on real geographical data, demographic statistics, and historical OHCA event data, providing scientific evidence for government decision-making.
 
-## 文件夹结构
+## Folder Structure
 
 ```
 government_research_package/
-├── code/                    # 核心代码文件
-├── data/                    # 数据文件
-├── results/                 # 研究结果
-├── documentation/           # 文档说明
-├── requirements/            # 环境配置
-└── README.md               # 本文件
+├── code/                    # Core code files
+├── data/                    # Data files
+├── results/                 # Research results
+├── documentation/           # Documentation
+├── requirements/            # Environment configuration
+└── README.md               # This file
 ```
 
-## 核心功能模块
+## Core Function Modules
 
-### 1. 风险建模 (Risk Modeling)
-- **文件**: `code/optimized_risk_model_with_area.py`
-- **功能**: 基于地理、人口、社会经济因素的心脏骤停风险预测模型
-- **输出**: 风险评分和地理热力图
+### 1. Risk Modeling
+- **File**: `code/optimized_risk_model_with_area.py`
+- **Function**: Cardiac arrest risk prediction model based on geographical, demographic, and socioeconomic factors
+- **Output**: Risk scores and geographical heatmaps
 
-### 2. AED部署优化 (AED Deployment Optimization)
-- **文件**: `code/aed_final_optimization.py`
-- **功能**: 使用整数线性规划优化AED部署位置
-- **输出**: 最优AED部署方案和覆盖分析
+### 2. AED Deployment Optimization
+- **File**: `code/aed_final_optimization.py`
+- **Function**: Integer linear programming optimization for AED deployment locations
+- **Output**: Optimal AED deployment plan and coverage analysis
 
-### 3. 志愿者分配 (Volunteer Assignment)
-- **文件**: `code/optimized_volunteer_assignment_simple.py`
-- **功能**: 基于风险评分和地理距离的志愿者最优分配
-- **输出**: 志愿者分配方案和覆盖地图
+### 3. Volunteer Assignment
+- **File**: `code/optimized_volunteer_assignment_simple.py`
+- **Function**: Optimal volunteer assignment based on risk scores and geographical distance
+- **Output**: Volunteer assignment plan and coverage maps
 
-### 4. 数据可视化 (Data Visualization)
-- **文件**: `code/plot_aed_final_analysis.py`, `code/create_geographic_heatmaps.py`
-- **功能**: 生成地理热力图、部署地图和分析图表
-- **输出**: PNG格式的可视化结果
+### 4. Data Visualization
+- **File**: `code/plot_aed_final_analysis.py`, `code/create_geographic_heatmaps.py`
+- **Function**: Generate geographical heatmaps, deployment maps, and analysis charts
+- **Output**: PNG format visualization results
 
-## 数据文件说明
+## Data File Description
 
-### 输入数据
-- `data/sg_subzone_all_features_with_area.csv`: 新加坡子区域特征数据（包含面积权重）
-- `data/AEDLocations_with_coords.csv`: 现有AED位置数据
-- `data/volunteers.csv`: 志愿者位置数据
-- `data/ResidentPopulationbyPlanningAreaSubzoneofResidenceEthnicGroupandSexCensusofPopulation2020.csv`: 2020年人口普查数据
+### Input Data
+- `data/sg_subzone_all_features_with_area.csv`: Singapore subzone feature data (including area weights)
+- `data/AEDLocations_with_coords.csv`: Existing AED location data
+- `data/volunteers.csv`: Volunteer location data
+- `data/ResidentPopulationbyPlanningAreaSubzoneofResidenceEthnicGroupandSexCensusofPopulation2020.csv`: 2020 population census data
 
-### 输出结果
-- `results/aed_final_optimization.csv`: AED优化部署结果
-- `results/risk_analysis_paper_aligned.csv`: 风险分析结果
-- `results/volunteer_assignment_simple.csv`: 志愿者分配结果
+### Output Results
+- `results/aed_final_optimization.csv`: AED optimization deployment results
+- `results/risk_analysis_paper_aligned.csv`: Risk analysis results
+- `results/volunteer_assignment_simple.csv`: Volunteer assignment results
 
-## 环境配置
+## Environment Configuration
 
-### Python版本要求
+### Python Version Requirements
 - Python 3.8+
 
-### 安装依赖
+### Install Dependencies
 ```bash
 pip install -r requirements/requirements.txt
 ```
 
-### 主要依赖包
-- pandas: 数据处理
-- numpy: 数值计算
-- scikit-learn: 机器学习
-- geopandas: 地理数据处理
-- matplotlib/seaborn: 数据可视化
-- folium: 交互式地图
+### Main Dependencies
+- pandas: Data processing
+- numpy: Numerical computation
+- scikit-learn: Machine learning
+- geopandas: Geographical data processing
+- matplotlib/seaborn: Data visualization
+- folium: Interactive maps
 
-## 使用方法
+## Usage Instructions
 
-### 1. 运行风险建模
+### 1. Run Risk Modeling
 ```bash
 python code/optimized_risk_model_with_area.py
 ```
 
-### 2. 运行AED部署优化
+### 2. Run AED Deployment Optimization
 ```bash
 python code/aed_final_optimization.py
 ```
 
-### 3. 运行志愿者分配
+### 3. Run Volunteer Assignment
 ```bash
 python code/optimized_volunteer_assignment_simple.py
 ```
 
-### 4. 生成可视化结果
+### 4. Generate Visualization Results
 ```bash
 python code/plot_aed_final_analysis.py
 ```
 
-## 研究结果摘要
+### 5. Run Complete Analysis Pipeline
+```bash
+python run_complete_analysis.py
+```
 
-### 风险建模结果
-- 识别了新加坡心脏骤停高风险区域
-- 建立了基于多因素的预测模型
-- 生成了详细的风险热力图
+## Research Results Summary
 
-### AED部署优化结果
-- 优化了AED部署位置，最大化覆盖效果
-- 考虑了人口密度、风险评分和地理因素
-- 提供了详细的部署建议
+### Risk Modeling Results
+- Identified high-risk areas for cardiac arrest in Singapore
+- Established prediction models based on multiple factors
+- Generated detailed risk heatmaps
 
-### 志愿者分配结果
-- 基于风险评分分配志愿者
-- 优化了响应时间和覆盖范围
-- 提供了志愿者管理建议
+### AED Deployment Optimization Results
+- Optimized AED deployment locations to maximize coverage effectiveness
+- Considered population density, risk scores, and geographical factors
+- Provided detailed deployment recommendations
 
-## 技术特点
+### Volunteer Assignment Results
+- Assigned volunteers based on risk scores
+- Optimized response time and coverage range
+- Provided volunteer management recommendations
 
-1. **科学性**: 基于真实数据和统计建模
-2. **实用性**: 可直接用于政府决策
-3. **可扩展性**: 模块化设计，易于扩展
-4. **可视化**: 丰富的图表和地图输出
-5. **可重现性**: 完整的代码和数据
+## Technical Features
 
-## 联系信息
+1. **Scientific**: Based on real data and statistical modeling
+2. **Practical**: Can be directly used for government decision-making
+3. **Scalable**: Modular design, easy to extend
+4. **Visualization**: Rich charts and map outputs
+5. **Reproducible**: Complete code and data
 
-如有技术问题或需要进一步说明，请联系研究团队。
+## Key Research Contributions
 
-## 许可证
+### Methodological Innovations
+- Integration of geographical, demographic, and health data
+- Multi-objective optimization for resource allocation
+- Risk-based approach for emergency response planning
 
-本项目仅供学术研究和政府决策使用。 "# NT" 
+### Practical Applications
+- Evidence-based AED deployment strategy
+- Data-driven volunteer management system
+- Comprehensive emergency response optimization
+
+### Policy Implications
+- Support for evidence-based public health policy
+- Resource allocation optimization for emergency services
+- Framework for similar studies in other regions
+
+## File Descriptions
+
+### Core Analysis Scripts
+- `aed_final_optimization.py`: Main AED optimization algorithm
+- `optimized_risk_model_with_area.py`: Risk modeling with area weighting
+- `optimized_volunteer_assignment_simple.py`: Volunteer assignment optimization
+- `plot_aed_final_analysis.py`: Comprehensive visualization and analysis
+
+### Data Processing Scripts
+- `data_analysis_comprehensive.py`: Comprehensive data analysis
+- `comprehensive_model_analysis_fixed.py`: Model performance analysis
+- `calculate_subzone_areas.py`: Geographical area calculations
+
+### Visualization Scripts
+- `create_geographic_heatmaps.py`: Geographical heatmap generation
+- `simple_clean_plots.py`: Clean visualization outputs
+- `plot_risk_heatmap_latest.py`: Risk visualization
+
+## Contact Information
+
+For technical questions or further clarification, please contact the research team.
+
+## License
+
+This project is for academic research and government decision-making use only. 
